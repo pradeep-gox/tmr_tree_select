@@ -9684,7 +9684,8 @@ object-assign
             a = e.labelRemove,
             i = e.lastItem,
             l = e.tagPrefix,
-            u = e.tagSuffix
+            u = e.tagSuffix,
+            c = e.tagClassName
           return s.a.createElement(
             'ul',
             { className: 'tag-list', style: { display: 'flex', flexDirection: 'row', flexWrap: 'wrap' } },
@@ -9694,7 +9695,7 @@ object-assign
                 Ve(
                   { key: t, index: t, onDelete: n, readOnly: r, disabled: o, labelRemove: a, tagDisabled: e.disabled },
                   e,
-                  { tagPrefix: l, tagSuffix: u }
+                  { tagPrefix: l, tagSuffix: u, tagClassName: c }
                 )
               )
             }),
@@ -9721,33 +9722,35 @@ object-assign
             c = e.children,
             f = e.tagPrefix,
             d = e.tagSuffix,
-            p = Object(u.useState)(t),
-            h = Ue(p, 2),
-            g = h[0],
-            y = h[1]
+            p = e.tagClassName,
+            h = Object(u.useState)(t),
+            g = Ue(h, 2),
+            y = g[0],
+            v = g[1]
           Object(u.useEffect)(
             function() {
-              y(t)
+              v(t)
             },
             [t]
           )
-          var v = c || s.a.createElement('span', { className: 'placeholder' }, a.placeholder || 'Choose...')
+          var m = c || s.a.createElement('span', { className: 'placeholder' }, a.placeholder || 'Choose...')
           return s.a.createElement(He, {
             axis: 'xy',
-            lastItem: v,
+            lastItem: m,
             onSortEnd: function(e) {
               var t = e.oldIndex,
                 n = e.newIndex,
-                o = Be()(g, t, n)
-              y(o), r(o)
+                o = Be()(y, t, n)
+              v(o), r(o)
             },
-            tags: g,
+            tags: y,
             onDelete: n,
             readOnly: l,
             disabled: i,
             labelRemove: a.labelRemove,
             tagPrefix: f,
             tagSuffix: d,
+            tagClassName: p,
           })
         },
         qe =
@@ -11945,15 +11948,16 @@ and limitations under the License.
                   c = t.labelSuffix,
                   f = t.tagPrefix,
                   d = t.tagSuffix,
-                  p = this.state,
-                  h = p.showDropdown,
-                  g = p.currentFocus,
-                  y = p.tags,
-                  v = (p.vtags,
+                  p = t.tagClassName,
+                  h = this.state,
+                  g = h.showDropdown,
+                  y = h.currentFocus,
+                  v = h.tags,
+                  m = (h.vtags,
                   {
                     disabled: n,
                     readOnly: r,
-                    activeDescendant: g ? g + '_li' : void 0,
+                    activeDescendant: y ? y + '_li' : void 0,
                     texts: a,
                     mode: o,
                     clientId: this.clientId,
@@ -11961,8 +11965,9 @@ and limitations under the License.
                     labelSuffix: c,
                     tagPrefix: f,
                     tagSuffix: d,
+                    tagClassName: p,
                   }),
-                  m = s.a.createElement(
+                  w = s.a.createElement(
                     b,
                     Nn(
                       {
@@ -11974,7 +11979,7 @@ and limitations under the License.
                         onBlur: this.onInputBlur,
                         onKeyDown: this.onKeyboardKeyDown,
                       },
-                      v,
+                      m,
                       { inlineSearchInput: i }
                     )
                   )
@@ -12002,18 +12007,18 @@ and limitations under the License.
                     },
                     s.a.createElement(
                       Ge,
-                      Nn({ onTrigger: this.onTrigger, showDropdown: h }, v, { tags: y, tabIndex: l }),
+                      Nn({ onTrigger: this.onTrigger, showDropdown: g }, m, { tags: v, tabIndex: l }),
                       s.a.createElement(
                         Ke,
-                        Nn({ tags: y, onReorder: this.onTagReorder, onTagRemove: this.onTagRemove }, v),
-                        !i && m
+                        Nn({ tags: v, onReorder: this.onTagReorder, onTagRemove: this.onTagRemove }, m),
+                        !i && w
                       )
                     ),
-                    h &&
+                    g &&
                       s.a.createElement(
                         'div',
                         Nn({ className: 'dropdown-content' }, this.getAriaAttributes()),
-                        i && m,
+                        i && w,
                         this.state.allNodesHidden
                           ? s.a.createElement('span', { className: 'no-matches' }, a.noMatches || 'No matches found')
                           : s.a.createElement(
@@ -12030,7 +12035,7 @@ and limitations under the License.
                                   mode: o,
                                   showPartiallySelected: this.props.showPartiallySelected,
                                 },
-                                v,
+                                m,
                                 { searchTerm: this.state.searchTerm }
                               )
                             )
@@ -12075,6 +12080,7 @@ and limitations under the License.
         labelSuffix: l.a.func,
         tagPrefix: l.a.func,
         tagSuffix: l.a.func,
+        tagClassName: l.a.string,
       }),
         (jn.defaultProps = {
           onAction: function() {},
