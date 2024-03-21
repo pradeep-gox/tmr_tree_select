@@ -55,34 +55,37 @@ const SortableItem = SortableElement(
   ),
   { withRef: true }
 )
-const SortableList = SortableContainer(({ tags, onDelete, readOnly, disabled, labelRemove, lastItem, tagPrefix, tagSuffix }) => {
-  console.log('tagsSortable List')
-    console.log(tags)
-  return (
-    <ul className="tag-list" style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
-      {tags.map((tags, index) => (
-        <SortableItem
-          key={index}
-          index={index}
-          onDelete={onDelete}
-          readOnly={readOnly}
-          disabled={disabled}
-          labelRemove={labelRemove}
-          tagDisabled={tags.disabled}
-          {...tags}
-          tagPrefix={tagPrefix}
-          tagSuffix={tagSuffix}
-        />
-      ))}
-      <li className="tag-item">
-        {lastItem}
-        <span className="dropdown-icon" style={{ fontSize: '20px', color: '#bfbfbf' }}>
-          &#x2304;
-        </span>
-      </li>
-    </ul>
-  )
-})
+const SortableList = SortableContainer(
+  ({ tags, onDelete, readOnly, disabled, labelRemove, lastItem, tagPrefix, tagSuffix, tagClassName }) => {
+    // console.log('tagsSortable List')
+    //   console.log(tags)
+    return (
+      <ul className="tag-list" style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
+        {tags.map((tags, index) => (
+          <SortableItem
+            key={index}
+            index={index}
+            onDelete={onDelete}
+            readOnly={readOnly}
+            disabled={disabled}
+            labelRemove={labelRemove}
+            tagDisabled={tags.disabled}
+            {...tags}
+            tagPrefix={tagPrefix}
+            tagSuffix={tagSuffix}
+            tagClassName={tagClassName}
+          />
+        ))}
+        <li className="tag-item">
+          {lastItem}
+          <span className="dropdown-icon" style={{ fontSize: '20px', color: '#bfbfbf' }}>
+            &#x2304;
+          </span>
+        </li>
+      </ul>
+    )
+  }
+)
 const getTags = (tags = [], onDelete, readOnly, disabled, labelRemove) =>
   tags.map((tag, index) => {
     const { _id, label, tagClassName, dataset, tagLabel, description } = tag
@@ -112,7 +115,19 @@ const getTags = (tags = [], onDelete, readOnly, disabled, labelRemove) =>
     }
   })
 const Tags = props => {
-  const { tags, value, onTagRemove, onReorder, texts = {}, disabled, readOnly, children, tagPrefix, tagSuffix } = props
+  const {
+    tags,
+    value,
+    onTagRemove,
+    onReorder,
+    texts = {},
+    disabled,
+    readOnly,
+    children,
+    tagPrefix,
+    tagSuffix,
+    tagClassName,
+  } = props
 
   /* console.log('tags')
      console.log(tags) */
@@ -150,6 +165,7 @@ const Tags = props => {
       labelRemove={texts.labelRemove}
       tagPrefix={tagPrefix}
       tagSuffix={tagSuffix}
+      tagClassName={tagClassName}
     />
   )
 }

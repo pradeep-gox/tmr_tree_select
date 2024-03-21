@@ -2,9 +2,9 @@
   "errors": [],
   "warnings": [],
   "version": "4.47.0",
-  "hash": "883f53b6e51785a4dc32",
-  "time": 4947,
-  "builtAt": 1711045438068,
+  "hash": "b7f220f1ad8eea4094a8",
+  "time": 5088,
+  "builtAt": 1711049121196,
   "publicPath": "",
   "outputPath": "/home/prady/Projects/tmr-tree-select/dist",
   "assetsByChunkName": {
@@ -26,7 +26,7 @@
     },
     {
       "name": "react-dropdown-tree-select.js",
-      "size": 228519,
+      "size": 228471,
       "chunks": [0],
       "chunkNames": ["react-dropdown-tree-select"],
       "info": {},
@@ -34,7 +34,7 @@
     },
     {
       "name": "react-dropdown-tree-select.js.map",
-      "size": 649591,
+      "size": 649551,
       "chunks": [0],
       "chunkNames": ["react-dropdown-tree-select"],
       "info": {
@@ -84,10 +84,10 @@
       "rendered": true,
       "initial": true,
       "entry": true,
-      "size": 388942,
+      "size": 388948,
       "names": ["react-dropdown-tree-select"],
       "files": ["styles.css", "react-dropdown-tree-select.js", "styles.css.map", "react-dropdown-tree-select.js.map"],
-      "hash": "7583ca6f46523afc95c5",
+      "hash": "944425a5128428d66d75",
       "siblings": [],
       "parents": [],
       "children": [],
@@ -3698,7 +3698,7 @@
           "name": "./src/index.js + 51 modules",
           "index": 0,
           "index2": 72,
-          "size": 195061,
+          "size": 195067,
           "cacheable": true,
           "built": true,
           "optional": false,
@@ -4051,18 +4051,18 @@
               "reasons": [
                 {
                   "moduleId": null,
-                  "moduleIdentifier": "/home/prady/Projects/tmr-tree-select/node_modules/babel-loader/lib/index.js!/home/prady/Projects/tmr-tree-select/src/input/index.js",
-                  "module": "./src/input/index.js",
-                  "moduleName": "./src/input/index.js",
+                  "moduleIdentifier": "/home/prady/Projects/tmr-tree-select/node_modules/babel-loader/lib/index.js!/home/prady/Projects/tmr-tree-select/src/trigger/index.js",
+                  "module": "./src/trigger/index.js",
+                  "moduleName": "./src/trigger/index.js",
                   "type": "harmony side effect evaluation",
                   "userRequest": "../a11y",
                   "loc": "14:0-39"
                 },
                 {
                   "moduleId": null,
-                  "moduleIdentifier": "/home/prady/Projects/tmr-tree-select/node_modules/babel-loader/lib/index.js!/home/prady/Projects/tmr-tree-select/src/trigger/index.js",
-                  "module": "./src/trigger/index.js",
-                  "moduleName": "./src/trigger/index.js",
+                  "moduleIdentifier": "/home/prady/Projects/tmr-tree-select/node_modules/babel-loader/lib/index.js!/home/prady/Projects/tmr-tree-select/src/input/index.js",
+                  "module": "./src/input/index.js",
+                  "moduleName": "./src/input/index.js",
                   "type": "harmony side effect evaluation",
                   "userRequest": "../a11y",
                   "loc": "14:0-39"
@@ -4177,7 +4177,7 @@
               "name": "./src/tags/index.js",
               "index": 15,
               "index2": 50,
-              "size": 7068,
+              "size": 7074,
               "cacheable": true,
               "built": true,
               "optional": false,
@@ -4221,7 +4221,7 @@
               "providedExports": ["default"],
               "optimizationBailout": [],
               "depth": 1,
-              "source": "var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i[\"return\"]) _i[\"return\"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError(\"Invalid attempt to destructure non-iterable instance\"); } }; }();\n\nvar _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };\n\nimport React, { useEffect, useState, forwardRef } from 'react';\nimport PropTypes from 'prop-types';\nimport Tag from '../tag';\nimport { getDataset } from '../utils';\nimport './index.css';\n/* import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd' */\nimport { SortableContainer, SortableElement, sortableHandle } from 'react-sortable-hoc';\nimport arrayMove from 'array-move';\nvar DragHandle = sortableHandle(function () {\n  return React.createElement(\n    'span',\n    null,\n    '::'\n  );\n});\nvar SortableItem = SortableElement(forwardRef(function (_ref, ref) {\n  var _id = _ref._id,\n      label = _ref.label,\n      tagClassName = _ref.tagClassName,\n      dataset = _ref.dataset,\n      tagLabel = _ref.tagLabel,\n      description = _ref.description,\n      onDelete = _ref.onDelete,\n      readOnly = _ref.readOnly,\n      disabled = _ref.disabled,\n      labelRemove = _ref.labelRemove,\n      tagDisabled = _ref.tagDisabled,\n      tagPrefix = _ref.tagPrefix,\n      tagSuffix = _ref.tagSuffix;\n\n  /* console.log(label) */\n  return React.createElement(\n    'div',\n    { ref: ref },\n    React.createElement(\n      'li',\n      _extends({\n        className: ['tag-item', tagClassName].filter(Boolean).join(' '),\n        key: _id,\n        index: _id\n      }, getDataset(dataset)),\n      ' ',\n      React.createElement(Tag, {\n        label: tagLabel || label,\n        tagPrefix: tagPrefix,\n        tagSuffix: tagSuffix,\n        id: '' + _id,\n        onDelete: onDelete,\n        readOnly: readOnly,\n        disabled: disabled || tagDisabled,\n        labelRemove: labelRemove\n      })\n    )\n  );\n}), { withRef: true });\nvar SortableList = SortableContainer(function (_ref2) {\n  var tags = _ref2.tags,\n      onDelete = _ref2.onDelete,\n      readOnly = _ref2.readOnly,\n      disabled = _ref2.disabled,\n      labelRemove = _ref2.labelRemove,\n      lastItem = _ref2.lastItem,\n      tagPrefix = _ref2.tagPrefix,\n      tagSuffix = _ref2.tagSuffix;\n\n  console.log('tagsSortable List');\n  console.log(tags);\n  return React.createElement(\n    'ul',\n    { className: 'tag-list', style: { display: 'flex', flexDirection: 'row', flexWrap: 'wrap' } },\n    tags.map(function (tags, index) {\n      return React.createElement(SortableItem, _extends({\n        key: index,\n        index: index,\n        onDelete: onDelete,\n        readOnly: readOnly,\n        disabled: disabled,\n        labelRemove: labelRemove,\n        tagDisabled: tags.disabled\n      }, tags, {\n        tagPrefix: tagPrefix,\n        tagSuffix: tagSuffix\n      }));\n    }),\n    React.createElement(\n      'li',\n      { className: 'tag-item' },\n      lastItem,\n      React.createElement(\n        'span',\n        { className: 'dropdown-icon', style: { fontSize: '20px', color: '#bfbfbf' } },\n        '\\u2304'\n      )\n    )\n  );\n});\nvar getTags = function getTags() {\n  var tags = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];\n  var onDelete = arguments[1];\n  var readOnly = arguments[2];\n  var disabled = arguments[3];\n  var labelRemove = arguments[4];\n  return tags.map(function (tag, index) {\n    var _id = tag._id,\n        label = tag.label,\n        tagClassName = tag.tagClassName,\n        dataset = tag.dataset,\n        tagLabel = tag.tagLabel,\n        description = tag.description;\n\n    return {\n      /* <Draggable key={_id} draggableId={_id} index={index}>\n                {provided => (\n                    <li\n                        title={description}\n                        ref={provided.innerRef}\n                        {...provided.draggableProps}\n                        {...provided.dragHandleProps}\n                        className={['tag-item', tagClassName].filter(Boolean).join(' ')}\n                        key={_id}\n                        {...getDataset(dataset)}\n                    >\n                        <Tag\n                            label={tagLabel || label}\n                            id={`${_id}`}\n                            onDelete={onDelete}\n                            readOnly={readOnly}\n                            disabled={disabled || tag.disabled}\n                            labelRemove={labelRemove}\n                        />\n                    </li>\n                )}\n            </Draggable> */\n    };\n  });\n};\nvar Tags = function Tags(props) {\n  var tags = props.tags,\n      value = props.value,\n      onTagRemove = props.onTagRemove,\n      onReorder = props.onReorder,\n      _props$texts = props.texts,\n      texts = _props$texts === undefined ? {} : _props$texts,\n      disabled = props.disabled,\n      readOnly = props.readOnly,\n      children = props.children,\n      tagPrefix = props.tagPrefix,\n      tagSuffix = props.tagSuffix;\n\n  /* console.log('tags')\n     console.log(tags) */\n\n  var _useState = useState(tags),\n      _useState2 = _slicedToArray(_useState, 2),\n      items = _useState2[0],\n      setItems = _useState2[1];\n\n  useEffect(function () {\n    setItems(tags);\n  }, [tags]);\n  var onSortEnd = function onSortEnd(_ref3) {\n    var oldIndex = _ref3.oldIndex,\n        newIndex = _ref3.newIndex;\n\n    var i = arrayMove(items, oldIndex, newIndex);\n    setItems(i);\n    onReorder(i);\n  };\n\n  var lastItem = children || React.createElement(\n    'span',\n    { className: 'placeholder' },\n    texts.placeholder || 'Choose...'\n  );\n  return (\n    /*  <DragDropContext onDragEnd={handleOnDragEnd}>\n            <Droppable droppableId=\"tag-list\" direction=\"horizontal\">\n                {provided => (\n                    <ul className=\"tag-list\" {...provided.droppableProps} ref={provided.innerRef}>\n                        {getTags(items, onTagRemove, readOnly, disabled, texts.labelRemove)}\n                        <li className=\"tag-item\">{lastItem}</li>\n                    </ul>\n                )}\n            </Droppable>\n        </DragDropContext> */\n\n    React.createElement(SortableList, {\n      axis: 'xy',\n      lastItem: lastItem,\n      onSortEnd: onSortEnd,\n      tags: items,\n      onDelete: onTagRemove,\n      readOnly: readOnly,\n      disabled: disabled,\n      labelRemove: texts.labelRemove,\n      tagPrefix: tagPrefix,\n      tagSuffix: tagSuffix\n    })\n  );\n};\n\nexport default Tags;"
+              "source": "var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i[\"return\"]) _i[\"return\"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError(\"Invalid attempt to destructure non-iterable instance\"); } }; }();\n\nvar _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };\n\nimport React, { useEffect, useState, forwardRef } from 'react';\nimport PropTypes from 'prop-types';\nimport Tag from '../tag';\nimport { getDataset } from '../utils';\nimport './index.css';\n/* import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd' */\nimport { SortableContainer, SortableElement, sortableHandle } from 'react-sortable-hoc';\nimport arrayMove from 'array-move';\nvar DragHandle = sortableHandle(function () {\n  return React.createElement(\n    'span',\n    null,\n    '::'\n  );\n});\nvar SortableItem = SortableElement(forwardRef(function (_ref, ref) {\n  var _id = _ref._id,\n      label = _ref.label,\n      tagClassName = _ref.tagClassName,\n      dataset = _ref.dataset,\n      tagLabel = _ref.tagLabel,\n      description = _ref.description,\n      onDelete = _ref.onDelete,\n      readOnly = _ref.readOnly,\n      disabled = _ref.disabled,\n      labelRemove = _ref.labelRemove,\n      tagDisabled = _ref.tagDisabled,\n      tagPrefix = _ref.tagPrefix,\n      tagSuffix = _ref.tagSuffix;\n\n  /* console.log(label) */\n  return React.createElement(\n    'div',\n    { ref: ref },\n    React.createElement(\n      'li',\n      _extends({\n        className: ['tag-item', tagClassName].filter(Boolean).join(' '),\n        key: _id,\n        index: _id\n      }, getDataset(dataset)),\n      ' ',\n      React.createElement(Tag, {\n        label: tagLabel || label,\n        tagPrefix: tagPrefix,\n        tagSuffix: tagSuffix,\n        id: '' + _id,\n        onDelete: onDelete,\n        readOnly: readOnly,\n        disabled: disabled || tagDisabled,\n        labelRemove: labelRemove\n      })\n    )\n  );\n}), { withRef: true });\nvar SortableList = SortableContainer(function (_ref2) {\n  var tags = _ref2.tags,\n      onDelete = _ref2.onDelete,\n      readOnly = _ref2.readOnly,\n      disabled = _ref2.disabled,\n      labelRemove = _ref2.labelRemove,\n      lastItem = _ref2.lastItem,\n      tagPrefix = _ref2.tagPrefix,\n      tagSuffix = _ref2.tagSuffix;\n\n  // console.log('tagsSortable List')\n  //   console.log(tags)\n  return React.createElement(\n    'ul',\n    { className: 'tag-list', style: { display: 'flex', flexDirection: 'row', flexWrap: 'wrap' } },\n    tags.map(function (tags, index) {\n      return React.createElement(SortableItem, _extends({\n        key: index,\n        index: index,\n        onDelete: onDelete,\n        readOnly: readOnly,\n        disabled: disabled,\n        labelRemove: labelRemove,\n        tagDisabled: tags.disabled\n      }, tags, {\n        tagPrefix: tagPrefix,\n        tagSuffix: tagSuffix\n      }));\n    }),\n    React.createElement(\n      'li',\n      { className: 'tag-item' },\n      lastItem,\n      React.createElement(\n        'span',\n        { className: 'dropdown-icon', style: { fontSize: '20px', color: '#bfbfbf' } },\n        '\\u2304'\n      )\n    )\n  );\n});\nvar getTags = function getTags() {\n  var tags = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];\n  var onDelete = arguments[1];\n  var readOnly = arguments[2];\n  var disabled = arguments[3];\n  var labelRemove = arguments[4];\n  return tags.map(function (tag, index) {\n    var _id = tag._id,\n        label = tag.label,\n        tagClassName = tag.tagClassName,\n        dataset = tag.dataset,\n        tagLabel = tag.tagLabel,\n        description = tag.description;\n\n    return {\n      /* <Draggable key={_id} draggableId={_id} index={index}>\n                {provided => (\n                    <li\n                        title={description}\n                        ref={provided.innerRef}\n                        {...provided.draggableProps}\n                        {...provided.dragHandleProps}\n                        className={['tag-item', tagClassName].filter(Boolean).join(' ')}\n                        key={_id}\n                        {...getDataset(dataset)}\n                    >\n                        <Tag\n                            label={tagLabel || label}\n                            id={`${_id}`}\n                            onDelete={onDelete}\n                            readOnly={readOnly}\n                            disabled={disabled || tag.disabled}\n                            labelRemove={labelRemove}\n                        />\n                    </li>\n                )}\n            </Draggable> */\n    };\n  });\n};\nvar Tags = function Tags(props) {\n  var tags = props.tags,\n      value = props.value,\n      onTagRemove = props.onTagRemove,\n      onReorder = props.onReorder,\n      _props$texts = props.texts,\n      texts = _props$texts === undefined ? {} : _props$texts,\n      disabled = props.disabled,\n      readOnly = props.readOnly,\n      children = props.children,\n      tagPrefix = props.tagPrefix,\n      tagSuffix = props.tagSuffix;\n\n  /* console.log('tags')\n     console.log(tags) */\n\n  var _useState = useState(tags),\n      _useState2 = _slicedToArray(_useState, 2),\n      items = _useState2[0],\n      setItems = _useState2[1];\n\n  useEffect(function () {\n    setItems(tags);\n  }, [tags]);\n  var onSortEnd = function onSortEnd(_ref3) {\n    var oldIndex = _ref3.oldIndex,\n        newIndex = _ref3.newIndex;\n\n    var i = arrayMove(items, oldIndex, newIndex);\n    setItems(i);\n    onReorder(i);\n  };\n\n  var lastItem = children || React.createElement(\n    'span',\n    { className: 'placeholder' },\n    texts.placeholder || 'Choose...'\n  );\n  return (\n    /*  <DragDropContext onDragEnd={handleOnDragEnd}>\n            <Droppable droppableId=\"tag-list\" direction=\"horizontal\">\n                {provided => (\n                    <ul className=\"tag-list\" {...provided.droppableProps} ref={provided.innerRef}>\n                        {getTags(items, onTagRemove, readOnly, disabled, texts.labelRemove)}\n                        <li className=\"tag-item\">{lastItem}</li>\n                    </ul>\n                )}\n            </Droppable>\n        </DragDropContext> */\n\n    React.createElement(SortableList, {\n      axis: 'xy',\n      lastItem: lastItem,\n      onSortEnd: onSortEnd,\n      tags: items,\n      onDelete: onTagRemove,\n      readOnly: readOnly,\n      disabled: disabled,\n      labelRemove: texts.labelRemove,\n      tagPrefix: tagPrefix,\n      tagSuffix: tagSuffix\n    })\n  );\n};\n\nexport default Tags;"
             },
             {
               "id": null,
@@ -7169,9 +7169,9 @@
               "optional": false,
               "prefetched": false,
               "chunks": [],
-              "issuer": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/toConsumableArray.js",
+              "issuer": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
               "issuerId": null,
-              "issuerName": "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js",
+              "issuerName": "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
               "issuerPath": [
                 {
                   "id": null,
@@ -7190,8 +7190,8 @@
                 },
                 {
                   "id": null,
-                  "identifier": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/toConsumableArray.js",
-                  "name": "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js"
+                  "identifier": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "name": "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js"
                 }
               ],
               "failed": false,
@@ -7201,18 +7201,18 @@
               "reasons": [
                 {
                   "moduleId": null,
-                  "moduleIdentifier": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/toConsumableArray.js",
-                  "module": "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js",
-                  "moduleName": "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js",
+                  "moduleIdentifier": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "module": "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "moduleName": "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
                   "type": "harmony side effect evaluation",
                   "userRequest": "./unsupportedIterableToArray.js",
                   "loc": "3:0-73"
                 },
                 {
                   "moduleId": null,
-                  "moduleIdentifier": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
-                  "module": "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
-                  "moduleName": "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "moduleIdentifier": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/toConsumableArray.js",
+                  "module": "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js",
+                  "moduleName": "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js",
                   "type": "harmony side effect evaluation",
                   "userRequest": "./unsupportedIterableToArray.js",
                   "loc": "3:0-73"
@@ -7987,9 +7987,9 @@
               "optional": false,
               "prefetched": false,
               "chunks": [],
-              "issuer": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js",
+              "issuer": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
               "issuerId": null,
-              "issuerName": "./node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js",
+              "issuerName": "./node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
               "issuerPath": [
                 {
                   "id": null,
@@ -8008,13 +8008,13 @@
                 },
                 {
                   "id": null,
-                  "identifier": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/toConsumableArray.js",
-                  "name": "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js"
+                  "identifier": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "name": "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js"
                 },
                 {
                   "id": null,
-                  "identifier": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js",
-                  "name": "./node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js"
+                  "identifier": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+                  "name": "./node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js"
                 }
               ],
               "failed": false,
@@ -8024,18 +8024,18 @@
               "reasons": [
                 {
                   "moduleId": null,
-                  "moduleIdentifier": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js",
-                  "module": "./node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js",
-                  "moduleName": "./node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js",
+                  "moduleIdentifier": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+                  "module": "./node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+                  "moduleName": "./node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
                   "type": "harmony side effect evaluation",
                   "userRequest": "./arrayLikeToArray.js",
                   "loc": "1:0-53"
                 },
                 {
                   "moduleId": null,
-                  "moduleIdentifier": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
-                  "module": "./node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
-                  "moduleName": "./node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+                  "moduleIdentifier": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js",
+                  "module": "./node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js",
+                  "moduleName": "./node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js",
                   "type": "harmony side effect evaluation",
                   "userRequest": "./arrayLikeToArray.js",
                   "loc": "1:0-53"
@@ -11966,7 +11966,7 @@
       "name": "./src/index.js + 51 modules",
       "index": 0,
       "index2": 72,
-      "size": 195061,
+      "size": 195067,
       "cacheable": true,
       "built": true,
       "optional": false,
@@ -12319,18 +12319,18 @@
           "reasons": [
             {
               "moduleId": null,
-              "moduleIdentifier": "/home/prady/Projects/tmr-tree-select/node_modules/babel-loader/lib/index.js!/home/prady/Projects/tmr-tree-select/src/input/index.js",
-              "module": "./src/input/index.js",
-              "moduleName": "./src/input/index.js",
+              "moduleIdentifier": "/home/prady/Projects/tmr-tree-select/node_modules/babel-loader/lib/index.js!/home/prady/Projects/tmr-tree-select/src/trigger/index.js",
+              "module": "./src/trigger/index.js",
+              "moduleName": "./src/trigger/index.js",
               "type": "harmony side effect evaluation",
               "userRequest": "../a11y",
               "loc": "14:0-39"
             },
             {
               "moduleId": null,
-              "moduleIdentifier": "/home/prady/Projects/tmr-tree-select/node_modules/babel-loader/lib/index.js!/home/prady/Projects/tmr-tree-select/src/trigger/index.js",
-              "module": "./src/trigger/index.js",
-              "moduleName": "./src/trigger/index.js",
+              "moduleIdentifier": "/home/prady/Projects/tmr-tree-select/node_modules/babel-loader/lib/index.js!/home/prady/Projects/tmr-tree-select/src/input/index.js",
+              "module": "./src/input/index.js",
+              "moduleName": "./src/input/index.js",
               "type": "harmony side effect evaluation",
               "userRequest": "../a11y",
               "loc": "14:0-39"
@@ -12445,7 +12445,7 @@
           "name": "./src/tags/index.js",
           "index": 15,
           "index2": 50,
-          "size": 7068,
+          "size": 7074,
           "cacheable": true,
           "built": true,
           "optional": false,
@@ -12489,7 +12489,7 @@
           "providedExports": ["default"],
           "optimizationBailout": [],
           "depth": 1,
-          "source": "var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i[\"return\"]) _i[\"return\"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError(\"Invalid attempt to destructure non-iterable instance\"); } }; }();\n\nvar _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };\n\nimport React, { useEffect, useState, forwardRef } from 'react';\nimport PropTypes from 'prop-types';\nimport Tag from '../tag';\nimport { getDataset } from '../utils';\nimport './index.css';\n/* import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd' */\nimport { SortableContainer, SortableElement, sortableHandle } from 'react-sortable-hoc';\nimport arrayMove from 'array-move';\nvar DragHandle = sortableHandle(function () {\n  return React.createElement(\n    'span',\n    null,\n    '::'\n  );\n});\nvar SortableItem = SortableElement(forwardRef(function (_ref, ref) {\n  var _id = _ref._id,\n      label = _ref.label,\n      tagClassName = _ref.tagClassName,\n      dataset = _ref.dataset,\n      tagLabel = _ref.tagLabel,\n      description = _ref.description,\n      onDelete = _ref.onDelete,\n      readOnly = _ref.readOnly,\n      disabled = _ref.disabled,\n      labelRemove = _ref.labelRemove,\n      tagDisabled = _ref.tagDisabled,\n      tagPrefix = _ref.tagPrefix,\n      tagSuffix = _ref.tagSuffix;\n\n  /* console.log(label) */\n  return React.createElement(\n    'div',\n    { ref: ref },\n    React.createElement(\n      'li',\n      _extends({\n        className: ['tag-item', tagClassName].filter(Boolean).join(' '),\n        key: _id,\n        index: _id\n      }, getDataset(dataset)),\n      ' ',\n      React.createElement(Tag, {\n        label: tagLabel || label,\n        tagPrefix: tagPrefix,\n        tagSuffix: tagSuffix,\n        id: '' + _id,\n        onDelete: onDelete,\n        readOnly: readOnly,\n        disabled: disabled || tagDisabled,\n        labelRemove: labelRemove\n      })\n    )\n  );\n}), { withRef: true });\nvar SortableList = SortableContainer(function (_ref2) {\n  var tags = _ref2.tags,\n      onDelete = _ref2.onDelete,\n      readOnly = _ref2.readOnly,\n      disabled = _ref2.disabled,\n      labelRemove = _ref2.labelRemove,\n      lastItem = _ref2.lastItem,\n      tagPrefix = _ref2.tagPrefix,\n      tagSuffix = _ref2.tagSuffix;\n\n  console.log('tagsSortable List');\n  console.log(tags);\n  return React.createElement(\n    'ul',\n    { className: 'tag-list', style: { display: 'flex', flexDirection: 'row', flexWrap: 'wrap' } },\n    tags.map(function (tags, index) {\n      return React.createElement(SortableItem, _extends({\n        key: index,\n        index: index,\n        onDelete: onDelete,\n        readOnly: readOnly,\n        disabled: disabled,\n        labelRemove: labelRemove,\n        tagDisabled: tags.disabled\n      }, tags, {\n        tagPrefix: tagPrefix,\n        tagSuffix: tagSuffix\n      }));\n    }),\n    React.createElement(\n      'li',\n      { className: 'tag-item' },\n      lastItem,\n      React.createElement(\n        'span',\n        { className: 'dropdown-icon', style: { fontSize: '20px', color: '#bfbfbf' } },\n        '\\u2304'\n      )\n    )\n  );\n});\nvar getTags = function getTags() {\n  var tags = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];\n  var onDelete = arguments[1];\n  var readOnly = arguments[2];\n  var disabled = arguments[3];\n  var labelRemove = arguments[4];\n  return tags.map(function (tag, index) {\n    var _id = tag._id,\n        label = tag.label,\n        tagClassName = tag.tagClassName,\n        dataset = tag.dataset,\n        tagLabel = tag.tagLabel,\n        description = tag.description;\n\n    return {\n      /* <Draggable key={_id} draggableId={_id} index={index}>\n                {provided => (\n                    <li\n                        title={description}\n                        ref={provided.innerRef}\n                        {...provided.draggableProps}\n                        {...provided.dragHandleProps}\n                        className={['tag-item', tagClassName].filter(Boolean).join(' ')}\n                        key={_id}\n                        {...getDataset(dataset)}\n                    >\n                        <Tag\n                            label={tagLabel || label}\n                            id={`${_id}`}\n                            onDelete={onDelete}\n                            readOnly={readOnly}\n                            disabled={disabled || tag.disabled}\n                            labelRemove={labelRemove}\n                        />\n                    </li>\n                )}\n            </Draggable> */\n    };\n  });\n};\nvar Tags = function Tags(props) {\n  var tags = props.tags,\n      value = props.value,\n      onTagRemove = props.onTagRemove,\n      onReorder = props.onReorder,\n      _props$texts = props.texts,\n      texts = _props$texts === undefined ? {} : _props$texts,\n      disabled = props.disabled,\n      readOnly = props.readOnly,\n      children = props.children,\n      tagPrefix = props.tagPrefix,\n      tagSuffix = props.tagSuffix;\n\n  /* console.log('tags')\n     console.log(tags) */\n\n  var _useState = useState(tags),\n      _useState2 = _slicedToArray(_useState, 2),\n      items = _useState2[0],\n      setItems = _useState2[1];\n\n  useEffect(function () {\n    setItems(tags);\n  }, [tags]);\n  var onSortEnd = function onSortEnd(_ref3) {\n    var oldIndex = _ref3.oldIndex,\n        newIndex = _ref3.newIndex;\n\n    var i = arrayMove(items, oldIndex, newIndex);\n    setItems(i);\n    onReorder(i);\n  };\n\n  var lastItem = children || React.createElement(\n    'span',\n    { className: 'placeholder' },\n    texts.placeholder || 'Choose...'\n  );\n  return (\n    /*  <DragDropContext onDragEnd={handleOnDragEnd}>\n            <Droppable droppableId=\"tag-list\" direction=\"horizontal\">\n                {provided => (\n                    <ul className=\"tag-list\" {...provided.droppableProps} ref={provided.innerRef}>\n                        {getTags(items, onTagRemove, readOnly, disabled, texts.labelRemove)}\n                        <li className=\"tag-item\">{lastItem}</li>\n                    </ul>\n                )}\n            </Droppable>\n        </DragDropContext> */\n\n    React.createElement(SortableList, {\n      axis: 'xy',\n      lastItem: lastItem,\n      onSortEnd: onSortEnd,\n      tags: items,\n      onDelete: onTagRemove,\n      readOnly: readOnly,\n      disabled: disabled,\n      labelRemove: texts.labelRemove,\n      tagPrefix: tagPrefix,\n      tagSuffix: tagSuffix\n    })\n  );\n};\n\nexport default Tags;"
+          "source": "var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i[\"return\"]) _i[\"return\"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError(\"Invalid attempt to destructure non-iterable instance\"); } }; }();\n\nvar _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };\n\nimport React, { useEffect, useState, forwardRef } from 'react';\nimport PropTypes from 'prop-types';\nimport Tag from '../tag';\nimport { getDataset } from '../utils';\nimport './index.css';\n/* import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd' */\nimport { SortableContainer, SortableElement, sortableHandle } from 'react-sortable-hoc';\nimport arrayMove from 'array-move';\nvar DragHandle = sortableHandle(function () {\n  return React.createElement(\n    'span',\n    null,\n    '::'\n  );\n});\nvar SortableItem = SortableElement(forwardRef(function (_ref, ref) {\n  var _id = _ref._id,\n      label = _ref.label,\n      tagClassName = _ref.tagClassName,\n      dataset = _ref.dataset,\n      tagLabel = _ref.tagLabel,\n      description = _ref.description,\n      onDelete = _ref.onDelete,\n      readOnly = _ref.readOnly,\n      disabled = _ref.disabled,\n      labelRemove = _ref.labelRemove,\n      tagDisabled = _ref.tagDisabled,\n      tagPrefix = _ref.tagPrefix,\n      tagSuffix = _ref.tagSuffix;\n\n  /* console.log(label) */\n  return React.createElement(\n    'div',\n    { ref: ref },\n    React.createElement(\n      'li',\n      _extends({\n        className: ['tag-item', tagClassName].filter(Boolean).join(' '),\n        key: _id,\n        index: _id\n      }, getDataset(dataset)),\n      ' ',\n      React.createElement(Tag, {\n        label: tagLabel || label,\n        tagPrefix: tagPrefix,\n        tagSuffix: tagSuffix,\n        id: '' + _id,\n        onDelete: onDelete,\n        readOnly: readOnly,\n        disabled: disabled || tagDisabled,\n        labelRemove: labelRemove\n      })\n    )\n  );\n}), { withRef: true });\nvar SortableList = SortableContainer(function (_ref2) {\n  var tags = _ref2.tags,\n      onDelete = _ref2.onDelete,\n      readOnly = _ref2.readOnly,\n      disabled = _ref2.disabled,\n      labelRemove = _ref2.labelRemove,\n      lastItem = _ref2.lastItem,\n      tagPrefix = _ref2.tagPrefix,\n      tagSuffix = _ref2.tagSuffix;\n\n  // console.log('tagsSortable List')\n  //   console.log(tags)\n  return React.createElement(\n    'ul',\n    { className: 'tag-list', style: { display: 'flex', flexDirection: 'row', flexWrap: 'wrap' } },\n    tags.map(function (tags, index) {\n      return React.createElement(SortableItem, _extends({\n        key: index,\n        index: index,\n        onDelete: onDelete,\n        readOnly: readOnly,\n        disabled: disabled,\n        labelRemove: labelRemove,\n        tagDisabled: tags.disabled\n      }, tags, {\n        tagPrefix: tagPrefix,\n        tagSuffix: tagSuffix\n      }));\n    }),\n    React.createElement(\n      'li',\n      { className: 'tag-item' },\n      lastItem,\n      React.createElement(\n        'span',\n        { className: 'dropdown-icon', style: { fontSize: '20px', color: '#bfbfbf' } },\n        '\\u2304'\n      )\n    )\n  );\n});\nvar getTags = function getTags() {\n  var tags = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];\n  var onDelete = arguments[1];\n  var readOnly = arguments[2];\n  var disabled = arguments[3];\n  var labelRemove = arguments[4];\n  return tags.map(function (tag, index) {\n    var _id = tag._id,\n        label = tag.label,\n        tagClassName = tag.tagClassName,\n        dataset = tag.dataset,\n        tagLabel = tag.tagLabel,\n        description = tag.description;\n\n    return {\n      /* <Draggable key={_id} draggableId={_id} index={index}>\n                {provided => (\n                    <li\n                        title={description}\n                        ref={provided.innerRef}\n                        {...provided.draggableProps}\n                        {...provided.dragHandleProps}\n                        className={['tag-item', tagClassName].filter(Boolean).join(' ')}\n                        key={_id}\n                        {...getDataset(dataset)}\n                    >\n                        <Tag\n                            label={tagLabel || label}\n                            id={`${_id}`}\n                            onDelete={onDelete}\n                            readOnly={readOnly}\n                            disabled={disabled || tag.disabled}\n                            labelRemove={labelRemove}\n                        />\n                    </li>\n                )}\n            </Draggable> */\n    };\n  });\n};\nvar Tags = function Tags(props) {\n  var tags = props.tags,\n      value = props.value,\n      onTagRemove = props.onTagRemove,\n      onReorder = props.onReorder,\n      _props$texts = props.texts,\n      texts = _props$texts === undefined ? {} : _props$texts,\n      disabled = props.disabled,\n      readOnly = props.readOnly,\n      children = props.children,\n      tagPrefix = props.tagPrefix,\n      tagSuffix = props.tagSuffix;\n\n  /* console.log('tags')\n     console.log(tags) */\n\n  var _useState = useState(tags),\n      _useState2 = _slicedToArray(_useState, 2),\n      items = _useState2[0],\n      setItems = _useState2[1];\n\n  useEffect(function () {\n    setItems(tags);\n  }, [tags]);\n  var onSortEnd = function onSortEnd(_ref3) {\n    var oldIndex = _ref3.oldIndex,\n        newIndex = _ref3.newIndex;\n\n    var i = arrayMove(items, oldIndex, newIndex);\n    setItems(i);\n    onReorder(i);\n  };\n\n  var lastItem = children || React.createElement(\n    'span',\n    { className: 'placeholder' },\n    texts.placeholder || 'Choose...'\n  );\n  return (\n    /*  <DragDropContext onDragEnd={handleOnDragEnd}>\n            <Droppable droppableId=\"tag-list\" direction=\"horizontal\">\n                {provided => (\n                    <ul className=\"tag-list\" {...provided.droppableProps} ref={provided.innerRef}>\n                        {getTags(items, onTagRemove, readOnly, disabled, texts.labelRemove)}\n                        <li className=\"tag-item\">{lastItem}</li>\n                    </ul>\n                )}\n            </Droppable>\n        </DragDropContext> */\n\n    React.createElement(SortableList, {\n      axis: 'xy',\n      lastItem: lastItem,\n      onSortEnd: onSortEnd,\n      tags: items,\n      onDelete: onTagRemove,\n      readOnly: readOnly,\n      disabled: disabled,\n      labelRemove: texts.labelRemove,\n      tagPrefix: tagPrefix,\n      tagSuffix: tagSuffix\n    })\n  );\n};\n\nexport default Tags;"
         },
         {
           "id": null,
@@ -15437,9 +15437,9 @@
           "optional": false,
           "prefetched": false,
           "chunks": [],
-          "issuer": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/toConsumableArray.js",
+          "issuer": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
           "issuerId": null,
-          "issuerName": "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js",
+          "issuerName": "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
           "issuerPath": [
             {
               "id": null,
@@ -15458,8 +15458,8 @@
             },
             {
               "id": null,
-              "identifier": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/toConsumableArray.js",
-              "name": "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js"
+              "identifier": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "name": "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js"
             }
           ],
           "failed": false,
@@ -15469,18 +15469,18 @@
           "reasons": [
             {
               "moduleId": null,
-              "moduleIdentifier": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/toConsumableArray.js",
-              "module": "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js",
-              "moduleName": "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js",
+              "moduleIdentifier": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "module": "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "moduleName": "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
               "type": "harmony side effect evaluation",
               "userRequest": "./unsupportedIterableToArray.js",
               "loc": "3:0-73"
             },
             {
               "moduleId": null,
-              "moduleIdentifier": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
-              "module": "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
-              "moduleName": "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "moduleIdentifier": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/toConsumableArray.js",
+              "module": "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js",
+              "moduleName": "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js",
               "type": "harmony side effect evaluation",
               "userRequest": "./unsupportedIterableToArray.js",
               "loc": "3:0-73"
@@ -16255,9 +16255,9 @@
           "optional": false,
           "prefetched": false,
           "chunks": [],
-          "issuer": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js",
+          "issuer": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
           "issuerId": null,
-          "issuerName": "./node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js",
+          "issuerName": "./node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
           "issuerPath": [
             {
               "id": null,
@@ -16276,13 +16276,13 @@
             },
             {
               "id": null,
-              "identifier": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/toConsumableArray.js",
-              "name": "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js"
+              "identifier": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "name": "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js"
             },
             {
               "id": null,
-              "identifier": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js",
-              "name": "./node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js"
+              "identifier": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+              "name": "./node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js"
             }
           ],
           "failed": false,
@@ -16292,18 +16292,18 @@
           "reasons": [
             {
               "moduleId": null,
-              "moduleIdentifier": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js",
-              "module": "./node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js",
-              "moduleName": "./node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js",
+              "moduleIdentifier": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+              "module": "./node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+              "moduleName": "./node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
               "type": "harmony side effect evaluation",
               "userRequest": "./arrayLikeToArray.js",
               "loc": "1:0-53"
             },
             {
               "moduleId": null,
-              "moduleIdentifier": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
-              "module": "./node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
-              "moduleName": "./node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+              "moduleIdentifier": "/home/prady/Projects/tmr-tree-select/node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js",
+              "module": "./node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js",
+              "moduleName": "./node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js",
               "type": "harmony side effect evaluation",
               "userRequest": "./arrayLikeToArray.js",
               "loc": "1:0-53"

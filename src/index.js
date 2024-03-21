@@ -53,6 +53,7 @@ class DropdownTreeSelect extends Component {
     labelSuffix: PropTypes.func,
     tagPrefix: PropTypes.func,
     tagSuffix: PropTypes.func,
+    tagClassName: PropTypes.string,
   }
 
   static defaultProps = {
@@ -368,7 +369,19 @@ class DropdownTreeSelect extends Component {
   }
 
   render() {
-    const { disabled, readOnly, mode, texts, inlineSearchInput, tabIndex, labelPrefix, labelSuffix, tagPrefix, tagSuffix } = this.props
+    const {
+      disabled,
+      readOnly,
+      mode,
+      texts,
+      inlineSearchInput,
+      tabIndex,
+      labelPrefix,
+      labelSuffix,
+      tagPrefix,
+      tagSuffix,
+      tagClassName,
+    } = this.props
     const { showDropdown, currentFocus, tags, vtags } = this.state
     /*  console.log('tags')
     console.log(tags)
@@ -379,7 +392,19 @@ class DropdownTreeSelect extends Component {
     console.log(tags) */
     const activeDescendant = currentFocus ? `${currentFocus}_li` : undefined
 
-    const commonProps = { disabled, readOnly, activeDescendant, texts, mode, clientId: this.clientId, labelPrefix, labelSuffix, tagPrefix, tagSuffix }
+    const commonProps = {
+      disabled,
+      readOnly,
+      activeDescendant,
+      texts,
+      mode,
+      clientId: this.clientId,
+      labelPrefix,
+      labelSuffix,
+      tagPrefix,
+      tagSuffix,
+      tagClassName,
+    }
 
     const searchInput = (
       <Input

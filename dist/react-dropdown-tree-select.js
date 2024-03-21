@@ -9685,39 +9685,27 @@ object-assign
             i = e.lastItem,
             l = e.tagPrefix,
             u = e.tagSuffix
-          return (
-            console.log('tagsSortable List'),
-            console.log(t),
+          return s.a.createElement(
+            'ul',
+            { className: 'tag-list', style: { display: 'flex', flexDirection: 'row', flexWrap: 'wrap' } },
+            t.map(function(e, t) {
+              return s.a.createElement(
+                We,
+                Ve(
+                  { key: t, index: t, onDelete: n, readOnly: r, disabled: o, labelRemove: a, tagDisabled: e.disabled },
+                  e,
+                  { tagPrefix: l, tagSuffix: u }
+                )
+              )
+            }),
             s.a.createElement(
-              'ul',
-              { className: 'tag-list', style: { display: 'flex', flexDirection: 'row', flexWrap: 'wrap' } },
-              t.map(function(e, t) {
-                return s.a.createElement(
-                  We,
-                  Ve(
-                    {
-                      key: t,
-                      index: t,
-                      onDelete: n,
-                      readOnly: r,
-                      disabled: o,
-                      labelRemove: a,
-                      tagDisabled: e.disabled,
-                    },
-                    e,
-                    { tagPrefix: l, tagSuffix: u }
-                  )
-                )
-              }),
+              'li',
+              { className: 'tag-item' },
+              i,
               s.a.createElement(
-                'li',
-                { className: 'tag-item' },
-                i,
-                s.a.createElement(
-                  'span',
-                  { className: 'dropdown-icon', style: { fontSize: '20px', color: '#bfbfbf' } },
-                  '⌄'
-                )
+                'span',
+                { className: 'dropdown-icon', style: { fontSize: '20px', color: '#bfbfbf' } },
+                '⌄'
               )
             )
           )
