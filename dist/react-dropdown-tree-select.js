@@ -8337,20 +8337,20 @@ object-assign
           : function(e) {
               for (var t = 1; t < arguments.length; t++) {
                 var n = arguments[t]
-                for (var r in n) Object.prototype.hasOwnProperty.call(n, r) && (e[r] = n[r])
+                for (var r in n) ({}.hasOwnProperty.call(n, r) && (e[r] = n[r]))
               }
               return e
-            }).apply(this, arguments)
+            }).apply(null, arguments)
       }
       function _(e, t) {
         ;(null == t || t > e.length) && (t = e.length)
-        for (var n = 0, r = new Array(t); n < t; n++) r[n] = e[n]
+        for (var n = 0, r = Array(t); n < t; n++) r[n] = e[n]
         return r
       }
       function P(e, t) {
         if (e) {
           if ('string' == typeof e) return _(e, t)
-          var n = Object.prototype.toString.call(e).slice(8, -1)
+          var n = {}.toString.call(e).slice(8, -1)
           return (
             'Object' === n && e.constructor && (n = e.constructor.name),
             'Map' === n || 'Set' === n
@@ -8471,7 +8471,7 @@ object-assign
         return e
       }
       function F(e, t) {
-        if (t && ('object' === I(t) || 'function' == typeof t)) return t
+        if (t && ('object' == I(t) || 'function' == typeof t)) return t
         if (void 0 !== t) throw new TypeError('Derived constructors may only return object or undefined')
         return z(e)
       }
@@ -11692,9 +11692,16 @@ and limitations under the License.
                 (t = t.map(function(e) {
                   var t = e.children.map(function(e) {
                     var t = Nn({}, e)
-                    return (t = o.includes(e.value)
-                      ? Nn({}, t, { isDefaultValue: !0 })
-                      : Nn({}, t, { isDefaultValue: !1 }))
+                    return (
+                      (t = o.includes(e.value) ? Nn({}, t, { isDefaultValue: !0 }) : Nn({}, t, { isDefaultValue: !1 }))
+                        .children &&
+                        (t.children = t.children.map(function(e) {
+                          return o.includes(e.value)
+                            ? Nn({}, e, { isDefaultValue: !0 })
+                            : Nn({}, e, { isDefaultValue: !1 })
+                        })),
+                      t
+                    )
                   })
                   return Nn({}, e, { children: t })
                 })),

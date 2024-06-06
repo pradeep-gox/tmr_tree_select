@@ -87,6 +87,15 @@ class DropdownTreeSelect extends Component {
         } else {
           obj = { ...obj, isDefaultValue: false }
         }
+        if (obj.children) {
+          obj.children = obj.children.map(c1 => {
+            if (value.includes(c1.value)) {
+              return { ...c1, isDefaultValue: true }
+            } else {
+              return { ...c1, isDefaultValue: false }
+            }
+          })
+        }
         return obj
       })
       return { ...e, children: children }
