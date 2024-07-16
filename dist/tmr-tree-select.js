@@ -2,10 +2,10 @@
   'object' == typeof exports && 'object' == typeof module
     ? (module.exports = t(require('react')))
     : 'function' == typeof define && define.amd
-    ? define('ReactDropdownTreeSelect', ['react'], t)
+    ? define('TMRTreeSelect', ['react'], t)
     : 'object' == typeof exports
-    ? (exports.ReactDropdownTreeSelect = t(require('react')))
-    : (e.ReactDropdownTreeSelect = t(e.React))
+    ? (exports.TMRTreeSelect = t(require('react')))
+    : (e.TMRTreeSelect = t(e.React))
 })(this, function(e) {
   return (function(e) {
     var t = {}
@@ -11669,7 +11669,7 @@ and limitations under the License.
        * Hrusikesh Panda <hrusikesh.panda@dowjones.com>
        * Copyright (c) 2017 Dow Jones, Inc. <support@dowjones.com> (http://dowjones.com)
        * license MIT
-       * see https://github.com/dowjones/react-dropdown-tree-select
+       * see https://github.com/dowjones/tmr-tree-select
        */
       var jn = (function(e) {
         function t(e) {
@@ -11994,7 +11994,7 @@ and limitations under the License.
                   'div',
                   {
                     id: this.clientId,
-                    className: [this.props.className && this.props.className, 'react-dropdown-tree-select']
+                    className: [this.props.className && this.props.className, 'tmr-tree-select']
                       .filter(Boolean)
                       .join(' '),
                     ref: function(t) {
@@ -12103,4 +12103,4 @@ and limitations under the License.
     },
   ])
 })
-//# sourceMappingURL=react-dropdown-tree-select.js.map
+//# sourceMappingURL=tmr-tree-select.js.map

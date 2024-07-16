@@ -4,7 +4,7 @@
  * Hrusikesh Panda <hrusikesh.panda@dowjones.com>
  * Copyright (c) 2017 Dow Jones, Inc. <support@dowjones.com> (http://dowjones.com)
  * license MIT
- * see https://github.com/dowjones/react-dropdown-tree-select
+ * see https://github.com/dowjones/tmr-tree-select
  */
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
@@ -431,9 +431,7 @@ class DropdownTreeSelect extends Component {
     return (
       <div
         id={this.clientId}
-        className={[this.props.className && this.props.className, 'react-dropdown-tree-select']
-          .filter(Boolean)
-          .join(' ')}
+        className={[this.props.className && this.props.className, 'tmr-tree-select'].filter(Boolean).join(' ')}
         ref={node => {
           this.node = node
         }}

@@ -6,12 +6,12 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
 module.exports = {
   devtool: 'source-map',
-  entry: { 'react-dropdown-tree-select': './src/index.js' },
+  entry: { 'tmr-tree-select': './src/index.js' },
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].js',
     libraryTarget: 'umd',
-    library: 'ReactDropdownTreeSelect',
+    library: 'TMRTreeSelect',
     umdNamedDefine: true,
     globalObject: 'this',
   },
@@ -55,7 +55,7 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              localIdentName: 'react-dropdown-tree-select__[local]--[hash:base64:5]',
+              localIdentName: 'tmr-tree-select__[local]--[hash:base64:5]',
               importLoaders: 1,
               minimize: true,
             },
