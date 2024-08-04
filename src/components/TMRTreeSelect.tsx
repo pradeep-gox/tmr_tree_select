@@ -22,7 +22,7 @@ import type { TreeData } from "../interfaces";
 import { findNode } from "../utils/helper";
 
 type Props = {
-  value: string[];
+  value?: string[];
   treeData: TreeData[];
   onChange: (value: string[]) => any;
   labelPrefix?: (id: string) => ReactNode;
@@ -34,7 +34,7 @@ type Props = {
 
 const TMRTreeSelect = ({
   treeData,
-  value,
+  value: propValue,
   onChange,
   labelPrefix,
   labelSuffix,
@@ -42,6 +42,9 @@ const TMRTreeSelect = ({
   tagSuffix,
   notFoundContent,
 }: Props) => {
+  const isControlled = propValue !== undefined;
+
+  const [internalValue, setInternalValue] = useState<string[]>([]);
   const [tree, setTree] = useState<TreeData[]>([]);
   const [searchValue, setSearchValue] = useState("");
   const [selectedNodes, setSelectedNodes] = useState<TreeData[]>([]);
@@ -57,12 +60,24 @@ const TMRTreeSelect = ({
   );
 
   const onNodeSelect = (id: string) => {
-    if (!value.includes(id)) {
-      onChange([...value, id]);
+    let newValue = [...internalValue];
+    if (!newValue.includes(id)) {
+      newValue.push(id);
     } else {
-      onChange(value.filter((item) => item !== id));
+      newValue = newValue.filter((item) => item !== id);
+    }
+    if (isControlled) {
+      onChange(newValue);
+    } else {
+      setInternalValue(newValue);
     }
   };
+
+  useEffect(() => {
+    if (isControlled) {
+      setInternalValue(propValue);
+    }
+  }, [isControlled, propValue]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -104,11 +119,11 @@ const TMRTreeSelect = ({
   }, [searchValue, treeData]);
 
   useEffect(() => {
-    const selectedNodes = value
+    const selectedNodes = internalValue
       .map((id) => findNode(treeData, id))
       .filter((node) => node !== undefined) as TreeData[];
     setSelectedNodes(selectedNodes);
-  }, [value, treeData]);
+  }, [internalValue, treeData]);
 
   const generateTree = (tree: TreeData[] | undefined) => {
     if (!tree) {
@@ -121,7 +136,7 @@ const TMRTreeSelect = ({
           <div key={node.value} className={`tmr-tree-select-node`}>
             <input
               type="checkbox"
-              checked={value.includes(node.value) ?? false}
+              checked={internalValue.includes(node.value) ?? false}
               disabled={node.disabled}
               onChange={() => onNodeSelect(node.value)}
             />
@@ -169,7 +184,11 @@ const TMRTreeSelect = ({
       const oldIndex = items.findIndex((i) => i.value === active.id);
       const newIndex = items.findIndex((i) => i.value === over.id);
       const newValue = arrayMove(items, oldIndex, newIndex).map((i) => i.value);
-      onChange(newValue);
+      if (isControlled) {
+        onChange(newValue);
+      } else {
+        setInternalValue(newValue);
+      }
     }
   };
 
@@ -187,7 +206,7 @@ const TMRTreeSelect = ({
           collisionDetection={closestCenter}
           onDragEnd={(e) => handleDragEnd(e, selectedNodes)}
         >
-          <SortableContext items={value} strategy={rectSortingStrategy}>
+          <SortableContext items={internalValue} strategy={rectSortingStrategy}>
             {selectedNodes.map((node) => (
               <Tag
                 node={node}
