@@ -36,7 +36,11 @@ const Tag = ({
         <p>{node.label}</p>
         {tagSuffix && tagSuffix(node.value)}
       </div>
-      <button className="tmr-tree-select-tag-close" onClick={onDelete}>
+      <button
+        type="button"
+        className="tmr-tree-select-tag-close"
+        onClick={onDelete}
+      >
         x
       </button>
     </div>

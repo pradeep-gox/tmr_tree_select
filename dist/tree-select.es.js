@@ -5097,7 +5097,15 @@ const Tag = ({
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: node.label }),
           tagSuffix && tagSuffix(node.value)
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "tmr-tree-select-tag-close", onClick: onDelete, children: "x" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "button",
+          {
+            type: "button",
+            className: "tmr-tree-select-tag-close",
+            onClick: onDelete,
+            children: "x"
+          }
+        )
       ]
     },
     node.value

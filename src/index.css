@@ -7,6 +7,7 @@
   top: 100%;
   left: 0;
   right: 0;
+  z-index: 1;
   margin: 8px 0 0 0;
   padding: 8px;
   max-height: 40vh;
@@ -40,7 +41,7 @@ details.tmr-tree-select-node > summary {
 }
 div.tmr-tree-select-node {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 2px;
 }
 div.tmr-tree-select-node input[type="checkbox"] {
