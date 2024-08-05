@@ -1,7 +1,7 @@
 {
   "name": "tmr-tree-select",
   "private": true,
-  "version": "2.2.0",
+  "version": "2.3.0",
   "type": "module",
   "types": "./types/index.d.ts",
   "main": "./dist/tree-select.umd.js",

@@ -52,6 +52,11 @@ div.tmr-tree-select-node input[type="checkbox"] {
   gap: 2px;
   padding-bottom: 1px;
 }
+
+details.tmr-tree-select-node > summary > div.tmr-tree-select-node-label {
+  width: calc(100% - 18px);
+}
+
 .tmr-tree-select-node input[type="checkbox"]:disabled {
   cursor: not-allowed;
 }
