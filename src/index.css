@@ -35,13 +35,13 @@ details.tmr-tree-select-node > summary {
 }
 div.tmr-tree-select-node {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 2px;
   margin-bottom: 5px;
 }
 div.tmr-tree-select-node input[type="checkbox"] {
   cursor: pointer;
-  margin: 0 2px 0 0;
+  margin: 4px 2px 0 0;
 }
 .tmr-tree-select-node-label {
   -webkit-user-select: none;
