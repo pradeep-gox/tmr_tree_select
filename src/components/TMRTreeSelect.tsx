@@ -23,9 +23,9 @@ import type { TreeData } from "../interfaces";
 import { findNode } from "../utils/helper";
 
 type Props = {
-  value?: string[];
   treeData: TreeData[];
-  onChange: (value: string[]) => any;
+  value?: string[];
+  onChange?: (value: string[]) => any;
   labelPrefix?: (id: string) => ReactNode;
   labelSuffix?: (id: string) => ReactNode;
   tagPrefix?: (id: string) => ReactNode;
@@ -68,7 +68,7 @@ const TMRTreeSelect = ({
       newValue = newValue.filter((item) => item !== id);
     }
     if (isControlled) {
-      onChange(newValue);
+      onChange?.(newValue);
     } else {
       setInternalValue(newValue);
     }
@@ -186,7 +186,7 @@ const TMRTreeSelect = ({
       const newIndex = items.findIndex((i) => i.value === over.id);
       const newValue = arrayMove(items, oldIndex, newIndex).map((i) => i.value);
       if (isControlled) {
-        onChange(newValue);
+        onChange?.(newValue);
       } else {
         setInternalValue(newValue);
       }

@@ -5156,7 +5156,7 @@ const TMRTreeSelect = ({
       newValue = newValue.filter((item) => item !== id);
     }
     if (isControlled) {
-      onChange(newValue);
+      onChange == null ? void 0 : onChange(newValue);
     } else {
       setInternalValue(newValue);
     }
@@ -5268,7 +5268,7 @@ const TMRTreeSelect = ({
       const newIndex = items.findIndex((i) => i.value === over.id);
       const newValue = arrayMove(items, oldIndex, newIndex).map((i) => i.value);
       if (isControlled) {
-        onChange(newValue);
+        onChange == null ? void 0 : onChange(newValue);
       } else {
         setInternalValue(newValue);
       }
