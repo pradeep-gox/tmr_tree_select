@@ -84,6 +84,7 @@ div.tmr-tree-select-node input[type="checkbox"] {
   display: inline-flex;
   align-items: center;
   gap: 2px;
+  padding-bottom: 1px;
 }
 .tmr-tree-select-tag-close {
   cursor: pointer;
