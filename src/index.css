@@ -1,8 +1,5 @@
 .tmr-tree-select {
   position: relative;
-  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 12px;
 }
 .tmr-tree-select-list {
   position: absolute;
@@ -11,12 +8,12 @@
   right: 0;
   z-index: 1;
   margin: 8px 0 0 0;
-  padding: 8px;
+  padding: 0px;
   max-height: 40vh;
   max-width: 100%;
   overflow: auto;
   background-color: white;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border: 8px solid white;
   box-shadow: 0 5px 8px rgba(0, 0, 0, 0.15);
 }
 .tmr-tree-select-list-hidden {
@@ -24,9 +21,7 @@
 }
 .tmr-tree-select p {
   margin: 0;
-}
-.tmr-tree-select-node {
-  font-size: 13px;
+  line-height: 1;
 }
 details.tmr-tree-select-node > details.tmr-tree-select-node {
   padding-left: 12px;
@@ -55,6 +50,7 @@ div.tmr-tree-select-node input[type="checkbox"] {
   display: inline-flex;
   align-items: center;
   gap: 2px;
+  padding-bottom: 1px;
 }
 .tmr-tree-select-node input[type="checkbox"]:disabled {
   cursor: not-allowed;
