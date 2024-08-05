@@ -1,6 +1,8 @@
 .tmr-tree-select {
   position: relative;
-  font-size: 14px;
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 12px;
 }
 .tmr-tree-select-list {
   position: absolute;
@@ -24,10 +26,7 @@
   margin: 0;
 }
 .tmr-tree-select-node {
-  padding-block: 3px;
-}
-details.tmr-tree-select-node {
-  padding-block: 3px;
+  font-size: 13px;
 }
 details.tmr-tree-select-node > details.tmr-tree-select-node {
   padding-left: 12px;
@@ -37,12 +36,13 @@ details.tmr-tree-select-node > .tmr-tree-select-node {
 }
 details.tmr-tree-select-node > summary {
   cursor: pointer;
-  font-size: 15px;
+  margin-bottom: 5px;
 }
 div.tmr-tree-select-node {
   display: flex;
   align-items: center;
   gap: 2px;
+  margin-bottom: 5px;
 }
 div.tmr-tree-select-node input[type="checkbox"] {
   cursor: pointer;
@@ -56,7 +56,7 @@ div.tmr-tree-select-node input[type="checkbox"] {
   align-items: center;
   gap: 2px;
 }
-.tmr-tree-select-node.disabled input[type="checkbox"] {
+.tmr-tree-select-node input[type="checkbox"]:disabled {
   cursor: not-allowed;
 }
 .tmr-tree-select-tags {
@@ -82,7 +82,6 @@ div.tmr-tree-select-node input[type="checkbox"] {
   border-radius: 2px;
 }
 .tmr-tree-select-tag-label {
-  font-size: 14px;
   cursor: grab;
   -webkit-user-select: none;
   user-select: none;
