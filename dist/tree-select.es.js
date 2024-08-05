@@ -5126,7 +5126,7 @@ const findNode = (tree, id) => {
 };
 const TMRTreeSelect = ({
   treeData,
-  value,
+  value: propValue,
   onChange,
   labelPrefix,
   labelSuffix,
@@ -5134,6 +5134,8 @@ const TMRTreeSelect = ({
   tagSuffix,
   notFoundContent
 }) => {
+  const isControlled = propValue !== void 0;
+  const [internalValue, setInternalValue] = useState([]);
   const [tree, setTree] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [selectedNodes, setSelectedNodes] = useState([]);
@@ -5147,12 +5149,23 @@ const TMRTreeSelect = ({
     })
   );
   const onNodeSelect = (id) => {
-    if (!value.includes(id)) {
-      onChange([...value, id]);
+    let newValue = [...internalValue];
+    if (!newValue.includes(id)) {
+      newValue.push(id);
     } else {
-      onChange(value.filter((item) => item !== id));
+      newValue = newValue.filter((item) => item !== id);
+    }
+    if (isControlled) {
+      onChange(newValue);
+    } else {
+      setInternalValue(newValue);
     }
   };
+  useEffect(() => {
+    if (isControlled) {
+      setInternalValue(propValue);
+    }
+  }, [isControlled, propValue]);
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
@@ -5182,9 +5195,9 @@ const TMRTreeSelect = ({
     setTree(updateTree(treeData));
   }, [searchValue, treeData]);
   useEffect(() => {
-    const selectedNodes2 = value.map((id) => findNode(treeData, id)).filter((node) => node !== void 0);
+    const selectedNodes2 = internalValue.map((id) => findNode(treeData, id)).filter((node) => node !== void 0);
     setSelectedNodes(selectedNodes2);
-  }, [value, treeData]);
+  }, [internalValue, treeData]);
   const generateTree = (tree2) => {
     if (!tree2) {
       return null;
@@ -5197,7 +5210,7 @@ const TMRTreeSelect = ({
             "input",
             {
               type: "checkbox",
-              checked: value.includes(node.value) ?? false,
+              checked: internalValue.includes(node.value) ?? false,
               disabled: node.disabled,
               onChange: () => onNodeSelect(node.value)
             }
@@ -5254,7 +5267,11 @@ const TMRTreeSelect = ({
       const oldIndex = items.findIndex((i) => i.value === active.id);
       const newIndex = items.findIndex((i) => i.value === over.id);
       const newValue = arrayMove(items, oldIndex, newIndex).map((i) => i.value);
-      onChange(newValue);
+      if (isControlled) {
+        onChange(newValue);
+      } else {
+        setInternalValue(newValue);
+      }
     }
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "tmr-tree-select", ref: wrapperRef, children: [
@@ -5273,7 +5290,7 @@ const TMRTreeSelect = ({
             sensors,
             collisionDetection: closestCenter,
             onDragEnd: (e) => handleDragEnd(e, selectedNodes),
-            children: /* @__PURE__ */ jsxRuntimeExports.jsxs(SortableContext, { items: value, strategy: rectSortingStrategy, children: [
+            children: /* @__PURE__ */ jsxRuntimeExports.jsxs(SortableContext, { items: internalValue, strategy: rectSortingStrategy, children: [
               selectedNodes.map((node) => /* @__PURE__ */ jsxRuntimeExports.jsx(
                 Tag,
                 {

@@ -1,6 +1,8 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { resolve } from "path";
+// @ts-ignore
+import postcss from "./postcss.config.js";
 
 export default defineConfig({
   define: {
@@ -9,6 +11,9 @@ export default defineConfig({
     ),
   },
   plugins: [react()],
+  css: {
+    postcss,
+  },
   build: {
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
@@ -25,5 +30,6 @@ export default defineConfig({
       },
     },
     minify: "terser", // Explicitly use Terser for minification
+    assetsInlineLimit: 0, // Ensures CSS is output as a separate file
   },
 });
