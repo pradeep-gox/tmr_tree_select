@@ -4,5 +4,5 @@ export interface TreeData {
   description?: string;
   disabled?: boolean;
   children?: TreeData[];
-  visible?: boolean;
+  open?: boolean;
 }

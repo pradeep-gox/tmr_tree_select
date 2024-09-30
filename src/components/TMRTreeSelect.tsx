@@ -103,7 +103,7 @@ const TMRTreeSelect = ({
             return {
               ...node,
               children: node.children ? updateTree(node.children) : undefined,
-              visible: false,
+              open: false,
             };
           }
           const isVisible = searchValue
@@ -120,7 +120,7 @@ const TMRTreeSelect = ({
             return {
               ...node,
               children,
-              visible: shouldShow,
+              open: shouldShow,
             };
           }
           return null;
@@ -143,7 +143,7 @@ const TMRTreeSelect = ({
     }
     return tree.map((node) => {
       const isLeaf = node.children === undefined;
-      const shouldOpen = node.visible;
+      const shouldOpen = node.open;
       if (isLeaf) {
         return (
           <div key={node.value} className={`tmr-tree-select-node`}>
