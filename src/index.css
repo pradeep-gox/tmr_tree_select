@@ -52,7 +52,7 @@ div.tmr-tree-select-node input[type="checkbox"] {
   gap: 2px;
   padding-bottom: 1px;
 }
-.tmr-tree-select-node-label > span > mark{
+.tmr-tree-select-node-label mark{
   padding: 0;
   background-color:#FFFF54;
 }
