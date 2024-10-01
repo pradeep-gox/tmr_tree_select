@@ -5180,13 +5180,22 @@ const TMRTreeSelect = ({
   useEffect(() => {
     const updateTree = (tree2) => {
       return tree2.map((node) => {
+        if (searchValue === "") {
+          return {
+            ...node,
+            children: node.children ? updateTree(node.children) : void 0,
+            open: false
+          };
+        }
         const isVisible = searchValue ? node.label.toLowerCase().includes(searchValue.toLowerCase()) : true;
         const children = node.children ? updateTree(node.children) : void 0;
         const hasVisibleChildren = children && children.length > 0;
-        if (isVisible || hasVisibleChildren) {
+        const shouldShow = isVisible || hasVisibleChildren;
+        if (shouldShow) {
           return {
             ...node,
-            children
+            children,
+            open: shouldShow
           };
         }
         return null;
@@ -5204,6 +5213,7 @@ const TMRTreeSelect = ({
     }
     return tree2.map((node) => {
       const isLeaf = node.children === void 0;
+      const shouldOpen = node.open;
       if (isLeaf) {
         return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `tmr-tree-select-node`, children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -5237,28 +5247,36 @@ const TMRTreeSelect = ({
           )
         ] }, node.value);
       }
-      return /* @__PURE__ */ jsxRuntimeExports.jsxs("details", { className: `tmr-tree-select-node`, children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("summary", { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
-          "div",
-          {
-            className: "tmr-tree-select-node-label",
-            title: node.description,
-            children: [
-              labelPrefix && labelPrefix(node.value),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                Highlighter,
-                {
-                  searchWords: [searchValue],
-                  autoEscape: true,
-                  textToHighlight: node.label
-                }
-              ),
-              labelSuffix && labelSuffix(node.value)
-            ]
-          }
-        ) }),
-        generateTree(node.children)
-      ] }, node.value);
+      return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "details",
+        {
+          open: shouldOpen,
+          className: `tmr-tree-select-node`,
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("summary", { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              "div",
+              {
+                className: "tmr-tree-select-node-label",
+                title: node.description,
+                children: [
+                  labelPrefix && labelPrefix(node.value),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    Highlighter,
+                    {
+                      searchWords: [searchValue],
+                      autoEscape: true,
+                      textToHighlight: node.label
+                    }
+                  ),
+                  labelSuffix && labelSuffix(node.value)
+                ]
+              }
+            ) }),
+            generateTree(node.children)
+          ]
+        },
+        node.value
+      );
     });
   };
   const handleDragEnd = (event, items) => {
