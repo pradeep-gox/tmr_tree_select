@@ -99,6 +99,13 @@ const TMRTreeSelect = ({
     const updateTree = (tree: TreeData[]): TreeData[] => {
       return tree
         .map((node) => {
+          if (searchValue === "") {
+            return {
+              ...node,
+              children: node.children ? updateTree(node.children) : undefined,
+              open: false,
+            };
+          }
           const isVisible = searchValue
             ? node.label.toLowerCase().includes(searchValue.toLowerCase())
             : true;
@@ -106,10 +113,14 @@ const TMRTreeSelect = ({
             ? updateTree(node.children)
             : undefined;
           const hasVisibleChildren = children && children.length > 0;
-          if (isVisible || hasVisibleChildren) {
+
+          const shouldShow = isVisible || hasVisibleChildren;
+
+          if (shouldShow) {
             return {
               ...node,
               children,
+              open: shouldShow,
             };
           }
           return null;
@@ -132,6 +143,7 @@ const TMRTreeSelect = ({
     }
     return tree.map((node) => {
       const isLeaf = node.children === undefined;
+      const shouldOpen = node.open;
       if (isLeaf) {
         return (
           <div key={node.value} className={`tmr-tree-select-node`}>
@@ -158,7 +170,11 @@ const TMRTreeSelect = ({
         );
       }
       return (
-        <details key={node.value} className={`tmr-tree-select-node`}>
+        <details
+          key={node.value}
+          open={shouldOpen}
+          className={`tmr-tree-select-node`}
+        >
           <summary>
             <div
               className="tmr-tree-select-node-label"
