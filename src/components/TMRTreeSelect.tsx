@@ -72,6 +72,7 @@ const TMRTreeSelect = ({
     } else {
       setInternalValue(newValue);
     }
+    setSearchValue("");
   };
 
   useEffect(() => {
