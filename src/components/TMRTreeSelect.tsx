@@ -72,7 +72,12 @@ const TMRTreeSelect = ({
     } else {
       setInternalValue(newValue);
     }
-    setSearchValue("");
+    setTimeout(() => {
+      if (searchInputRef.current) {
+        searchInputRef.current.focus();
+        searchInputRef.current.select();
+      }
+    }, 0);
   };
 
   useEffect(() => {
