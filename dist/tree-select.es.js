@@ -5160,6 +5160,12 @@ const TMRTreeSelect = ({
     } else {
       setInternalValue(newValue);
     }
+    setTimeout(() => {
+      if (searchInputRef.current) {
+        searchInputRef.current.focus();
+        searchInputRef.current.select();
+      }
+    }, 0);
   };
   useEffect(() => {
     if (isControlled) {
